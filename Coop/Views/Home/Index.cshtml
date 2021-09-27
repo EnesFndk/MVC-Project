@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FileContext>
+
+
+
+@{ ViewData["Title"] = "Home Page"; }
+
+<div class="text-center">
+    <h1 class="display-4">İlginiz için teşekkür ederim</h1>
+</div>
+<span>@ViewBag.Message</span>
+
+<form asp-controller="Home" enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label>Sadece Text Dosyaları Yüklenir</label>
+        </dt>
+        <dd>
+            <input name="text" type="file">
+            <span></span>
+        </dd>
+    </dl>
+    <input class="btn btn-success" type="submit" value="Upload" />
+
+</form>
+
+@*@foreach (var item in Model)
+{
+
+    <table>
+        <li>
+            <ul>
+                <span>@item.txt</span>
+            </ul>
+        </li>
+    </table>
+    <span>@item.date</span>}*@
