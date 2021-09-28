@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<FileContext>
 
 
-
 @{ ViewData["Title"] = "Home Page"; }
 
 <div class="text-center">
@@ -24,27 +23,32 @@
 </form>
 
 @foreach (var item in Model)
-{
-    <table>
-        <tr>
-            <th>Text</th>
-            <th>Data</th>
-        </tr>
-        <tr>
-            <td>@item.text</td>
-            <td>@item.date</td>
-        </tr>
-    </table>
-}
+    {
+        <table>
+            <tr>
+                <th>Text</th>
+                <th>Data</th>
+                <th>UserId</th>
+                <th>UserName</th>
 
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
+            </tr>
+            <tr>
+                <td>@item.text</td>
+                <td>@item.date</td>
+                <td>@item.UserId</td>
+                <td>@item.UserName</td>
+            </tr>
+        </table>
     }
 
-    th, td {
-        border: 2px solid black;
-        padding: 15px;
-    }
-</style>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 15px;
+        }
+    </style>

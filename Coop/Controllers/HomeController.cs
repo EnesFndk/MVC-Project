@@ -49,15 +49,11 @@ namespace Coop.Controllers
                 return (RedirectToAction("Login"));
             }
             return View();
-            
-            var List = _context.FileContexts.ToList();
-
-            return View(List);
         }
+
         public IActionResult Index()
         {
-
-            var List = _context.FileContexts.ToList();
+           var List = _context.FileContexts.ToList();
 
             return View(List);
         }
@@ -81,7 +77,12 @@ namespace Coop.Controllers
                 fileContents = await reader.ReadToEndAsync();
 
             }
-            _context.Add(new FileContext() { text = fileContents, date = DateTime.Now });
+
+            var mailadress = HttpContext.User.Claims.FirstOrDefault().Value;
+
+            var user = _context.Users.Where(c => c.Email == mailadress).FirstOrDefault();
+
+            _context.Add(new FileContext() { text = fileContents, date = DateTime.Now, UserId = user.Id, UserName = user.FirstName + " " +user.LastName});
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
