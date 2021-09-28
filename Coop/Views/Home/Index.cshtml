@@ -5,7 +5,7 @@
 @{ ViewData["Title"] = "Home Page"; }
 
 <div class="text-center">
-    <h1 class="display-4">İlginiz için teşekkür ederim</h1>
+    <h1 class="display-4">Metinleriniz Burda güvendedir.</h1>
 </div>
 <span>@ViewBag.Message</span>
 
@@ -23,14 +23,28 @@
 
 </form>
 
-@*@foreach (var item in Model)
+@foreach (var item in Model)
 {
-
     <table>
-        <li>
-            <ul>
-                <span>@item.txt</span>
-            </ul>
-        </li>
+        <tr>
+            <th>Text</th>
+            <th>Data</th>
+        </tr>
+        <tr>
+            <td>@item.text</td>
+            <td>@item.date</td>
+        </tr>
     </table>
-    <span>@item.date</span>}*@
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 2px solid black;
+        padding: 15px;
+    }
+</style>

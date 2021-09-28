@@ -34,7 +34,7 @@ namespace Coop.Controllers
         }
 
         [Authorize]
-        public IActionResult Index()
+        public IActionResult Index2()
         {
             string token = HttpContext.Session.GetString("Token");
 
@@ -50,6 +50,13 @@ namespace Coop.Controllers
             }
             return View();
             
+            var List = _context.FileContexts.ToList();
+
+            return View(List);
+        }
+        public IActionResult Index()
+        {
+
             var List = _context.FileContexts.ToList();
 
             return View(List);
